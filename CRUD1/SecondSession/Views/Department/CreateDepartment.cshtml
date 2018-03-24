@@ -1,0 +1,20 @@
+﻿@model SecondSession.Models.Department
+@{
+    ViewBag.Title = "CreateDepartment";
+}
+<h2>Create Department</h2>
+
+@using (Html.BeginForm("SaveDepartment", "Department"))
+{
+<div class ="form.group">
+    @Html.ValidationMessageFor(x => x.Department_Name)
+    @Html.Label("Department Name:")
+    @Html.TextBoxFor(x => x.Department_Name, new {@class="form-control" })
+</div>
+
+<button class ="btn btn-primary" type="submit">
+    Save
+</button> 
+}
+
+

@@ -1,0 +1,24 @@
+﻿@model List<SecondSession.Models.Department>
+@{
+    ViewBag.Title = "DisplayDepartments";
+}
+
+<h2>Display Departments</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>Department ID</th>
+    <th>Department Name</th>
+  </tr>
+@for (int i = 0; i < Model.Count(); i++)
+    {
+      <tr>
+        <td>@Model[i].Department_Id</td> 
+        <td>@Html.ActionLink(Model[i].Department_Name, "RetrieveEmpList", new {DepName = Model[i].Department_Name})</td>
+        <td>@Html.ActionLink("Edit", "EditDepartment", new { id=Model[i].Department_Id })</td>
+        <td>@Html.ActionLink("Delete", "DeleteDepartment", new { id=Model[i].Department_Id})</td>
+      </tr>
+    }
+</table>
+<h3>@Html.ActionLink("Create Department", "CreateDepartment")</h3>
+    

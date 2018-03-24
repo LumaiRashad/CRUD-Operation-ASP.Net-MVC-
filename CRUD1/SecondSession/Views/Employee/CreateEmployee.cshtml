@@ -1,0 +1,47 @@
+﻿@model SecondSession.Models.Employee
+@{
+    ViewBag.Title = "CreateEmployee";
+}
+
+<h2>CreateEmployee</h2>
+@using (Html.BeginForm("SaveEmployee", "Employee"))
+{    
+    <div class ="form.group"> 
+        @Html.ValidationMessageFor(x => x.First_name)
+        @Html.Label("First Name:")
+        @Html.TextBoxFor(x => x.First_name, new {@class="form-control" })
+    </div>
+    
+    <div class ="form.group">
+        @Html.ValidationMessageFor(x => x.Last_name)
+        @Html.Label("Last Name:")
+        @Html.TextBoxFor(x => x.Last_name, new {@class="form-control" })
+    </div>
+    
+    <div class ="form.group">
+        @Html.ValidationMessageFor(x => x.Salary)
+        @Html.Label("Salary:")
+        @Html.TextBoxFor(x => x.Salary, new {@class="form-control" })
+
+    </div>
+    
+    <div class ="form.group">
+        @Html.ValidationMessageFor(x => x.Email)
+        @Html.Label("E-mail:")
+        @Html.TextBoxFor(x => x.Email, new {@class="form-control" })
+    </div>
+    
+    <div class ="form.group">
+        @Html.ValidationMessageFor(x => x.HireDate)
+        @Html.Label("Hire Date:")
+        @Html.TextBoxFor(x => x.HireDate, new {@class="form-control" })
+    </div>
+    
+    <div>
+    @Html.DropDownListFor(x => x.Employee_Dep_Name, new SelectList(SecondSession.Controllers.DepartmentController.Departments), "Select Department")
+    </div>
+    
+    <button class ="btn btn-primary" type="submit">
+        Save
+    </button>    
+}

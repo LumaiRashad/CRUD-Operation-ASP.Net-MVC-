@@ -1,0 +1,24 @@
+﻿@model SecondSession.Models.Department
+
+@{
+    ViewBag.Title = "EditDepartment";
+}
+
+<h2>Edit Department</h2>
+
+@using (Html.BeginForm("SaveEditedDepartment", "Department", new { id = Model.Department_Id }))
+{
+    <div class="display-field">
+        @Html.Display("Department ID")
+        @Html.DisplayFor(model => model.Department_Id)
+    </div>
+     <div class ="form.group">
+         @Html.ValidationMessageFor(x => x.Department_Name)
+        @Html.Label("First Name:")
+        @Html.TextBoxFor(x => x.Department_Name, Model.Department_Name, new {@class="form-control" })
+     </div>
+
+    <button class ="btn btn-primary" type="submit">
+        Save
+    </button> 
+}

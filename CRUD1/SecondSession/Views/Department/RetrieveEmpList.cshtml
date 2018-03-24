@@ -1,0 +1,31 @@
+﻿@model List<SecondSession.Models.Employee>
+@{
+    ViewBag.Title = "RetrieveEmpList";
+}
+
+<h2>Retrieve Employees List</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>ID</th>
+    <th>First Name</th>
+    <th>Last Name</th> 
+    <th>Salary</th>
+    <th>E-mail</th>
+    <th>Hire Date</th>
+    <th>Department Name</th>
+  </tr>
+@for (int i = 0; i < Model.Count(); i++)
+    {
+      <tr>
+        <td>@Model[i].Id</td> 
+        <td>@Html.ActionLink(Model[i].First_name.ToString(), "RetrieveEmployee", new { id=Model[i].Id })</td>
+        <td>@Model[i].Last_name</td>
+        <td>@Model[i].Salary</td>
+        <td>@Model[i].Email</td>
+        <td>@Model[i].HireDate</td>
+        <td>@Model[i].Employee_Dep_Name</td>       
+      </tr>
+    }
+</table>
+
